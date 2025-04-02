@@ -6,5 +6,5 @@ from .import views
 urlpatterns = [
     path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
     path('litsu-wp/', admin.site.urls),
-    path('', views.LOGIN, name='login'),
+    path('', views.Home_Page, name='home'),
 ]
