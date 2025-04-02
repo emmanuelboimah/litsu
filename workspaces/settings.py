@@ -1,4 +1,5 @@
 from pathlib import Path
+import dj_database_url
 
 from environ import Env
 env = Env()
@@ -21,8 +22,13 @@ if ENVIRONMENT == 'development':
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ 'localhost', '127.0.0.1', 'litsu.up.railway.app' ]
+CSRF_TRUSTED_ORIGINS = [ 'https//litsu.up.railway.app' ]
 
+INTERNAL_IPS = (
+    '127.0.0.1',
+    'localhost:8000'
+)
 
 # Application definition
 
@@ -53,7 +59,7 @@ ROOT_URLCONF = 'workspaces.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,7 +85,9 @@ DATABASES = {
     }
 }
 
-
+POSTGRES_LOCALLY = False
+if ENVIRONMENT == 'production' or POSTGRES_LOCALLY == True:
+    DATABASES['default'] = dj_database_url.parse(env('DATABASE'))
     
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -121,3 +129,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = 'app.CustomUser'
