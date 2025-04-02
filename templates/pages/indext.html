@@ -7,7 +7,7 @@
         <!--begin:Video-bg-->
         {% for i in view_slid %}
         <div class="w-100 h-100 opacity-25 position-absolute end-0 top-0 bg-cover bg-no-repeat bg-center"
-            style="background-image: url('{{i.slider1_image.url}}');">
+            style="background-image: url('');">
         </div>
         {% endfor %}
         <!--end:Video-bg-->
@@ -69,7 +69,7 @@
                     </p>
 
                         <!--Request form-->
-                    <form action="{% url 'contact_us' %}" method="post">
+                    <form action="" method="post">
                         {% csrf_token %}
                         <div class="row g-2 justify-content-center w-100">
                             <div class="col-md-6 mb-3 mb-lg-0 col-lg-4">
@@ -195,7 +195,7 @@
                     </div>
                     
                     <div class="mt-5 text-end" data-aos="fade-up" data-aos-delay="250">
-                        <a href="{% url 'about_us' %}" class="link-hover-underline fw-bold">
+                        <a href="" class="link-hover-underline fw-bold">
                             <span>Read more</span> <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
@@ -206,7 +206,7 @@
                     <div class="position-relative" data-aos="fade-up" data-aos-delay="200">
                         <!--feature image-->
                         <img class="img-fluid position-relative rounded-block shadow-lg" alt=""
-                            src="{{i.Presidential_image.url}}">
+                            src="">
                     </div>
                     <p class="mt-2 text-body-secondary">
                         {{i.Presidential_info}}
@@ -227,7 +227,7 @@
                     <h2 class="mb-0 display" data-aos="fade-right">News & Upadtes</h2>
                 </div>
                 <div class="col-12 col-lg-3 text-lg-end" data-aos="fade-left" data-aos-delay="150">
-                    <a href="{% url 'news' %}" class="btn btn-secondary btn-hover-arrow hover-lift">
+                    <a href="" class="btn btn-secondary btn-hover-arrow hover-lift">
                     <span>Read More</span>
                     </a>
                 </div>
