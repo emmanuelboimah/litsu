@@ -1,0 +1,140 @@
+<!Doctype html>
+{% load static %}
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="icon" href="assets/img/login.png" type="image/ico">
+    <link rel="stylesheet" href="assets/fonts/bootstrap-icons/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/fonts/bootstrap-icons/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/fonts/iconsmind/iconsmind.css">
+    <link rel="stylesheet" href="assets/vendor/node_modules/css/aos.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <script src="https://kit.fontawesome.com/79912e3256.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static 'assets/vendor/css/style/masterslider.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/css/swiper-bundle.min.css' %}">
+    <link href="{% static 'assets/css/theme.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/vendor/node_modules/css/quill.snow.css' %}">
+
+    <title>LITSU - {% block title %}{% endblock %}</title>
+    <style>
+        #articles-container {
+            display: flex;
+            flex-direction: column; /* or row, based on your design */
+        }
+        .card {
+            display: flex; /* Use flexbox for layout */
+            margin-bottom: 20px; /* Space between articles */
+        }
+        
+        .card img {
+            max-width: 100%; /* Ensure images are responsive */
+            height: auto; /* Maintain aspect ratio */
+        }
+        
+        .card-body {
+            display: flex;
+            flex-direction: column; /* Stack content vertically */
+            justify-content: space-between; /* Space out the content */
+        }
+    </style>
+
+</head>
+<body>
+    <!--Preloader Spinner-->
+    <div class="spinner-loader bg-primary text-white">
+        <div class="spinner-border" role="status"></div>
+    </div>
+    <!--Ends: Preloader Spinner-->
+
+    {% include 'includes/header.html' %}
+    <main>
+        {% block content %}
+        {% endblock content %}	
+    </main>    
+    {% include 'includes/footer.html' %}
+ 
+    <!-- scripts -->
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+    <script src="{% static 'assets/vendor/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/js/masterslider.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/theme.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/node_modules/js/quill.js' %}"></script>
+
+    <script>
+        var slider = new MasterSlider();
+        slider.setup('masterslider', {
+            width: 1140,
+            height: 660,
+            minHeight: 400,
+            space: 0,
+            start: 1,
+            grabCursor: false,
+            layout: "fullwidth",
+            wheel: false,
+            autoplay: true,
+            instantStartLayers: true,
+            loop: true,
+            view: "basic",
+            instantStartLayers: true,
+        });
+        slider.control('arrows');
+
+    </script>
+ 
+    <script src="{% static 'assets/vendor/js/swiper-bundle.min.js' %}"></script>
+    <script>
+        var swiperProjects = new Swiper(".swiper-projects", {
+            autoHeight: true,
+            spaceBetween: 16,
+            centeredSlides: true,
+            loop: true,
+            breakpoints: {
+            640: {
+                slidesPerView: 1,
+                spaceBetween: 16
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 16
+            },
+            1024: {
+                slidesPerView: 2,
+                spaceBetween: 16
+            }
+            },
+            pagination: {
+            el: ".swiperProjects-pagination",
+            clickable: true
+            }
+        });
+
+        //swiper-testimonials
+        var swiperAuto = new Swiper(".swiper-testimonials", {
+            slidesPerView: "auto",
+            loop: true,
+            centeredSlides: true,
+            spaceBetween: 0,
+            grabCursor: true,
+            pagination: {
+            el: ".swiperAuto-pagination",
+            clickable: true,
+            },
+            navigation: {
+            nextEl: ".swiperAuto-button-next",
+            prevEl: ".swiperAuto-button-prev",
+            }
+        });
+
+    </script>
+</body>
+</html>
+
+
+
