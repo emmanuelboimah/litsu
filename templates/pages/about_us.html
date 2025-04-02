@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %} 
+    <title>{% block title %}About Us{% endblock %}</title>
+    <section class="bg-primary text-white">
+        <div class="container pt-10 pb-5 pb-lg-3">
+            <div class="row pt-lg-7">
+                <div class="col-xl-9">
+                    <h3 class="mb-0 display-9">About Us</h3>
+                    {% include 'includes/error.html' %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="position-relative border-bottom overflow-hidden" id="next">
+        <div class="container py-9 py-lg-11">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h6 class="fst-italic font-serif mb-3" data-aos="fade-right" data-aos-duration="700">
+                        All About LITSU </h6>
+                    <h1 class="display-5 mb-4" data-aos="fade-left" data-aos-delay="100"
+                        data-aos-duration="700">
+                        How We Started
+                    </h1>
+                    <p class="mb-5 w-lg-75" data-aos="fade-right" data-aos-delay="150" data-aos-duration="700">
+                        Liberia LITSU was officially established in June 24, 2015 as a Technology union in Liberia by a 
+                        purposeful young ICT student called Willie Bee Tingba, Jr. A student of the United Methodist University 
+                        (UMU) and later, he encouraged student Foldestine Paye of the Blue Crest university and few other guys 
+                        from various ICT institutions in Liberia to join him on the revolution. LITSU Members have the 
+                        opportunity to run for elected office, assist in a community project, explore career choices, 
+                        receive recognition and prestige through local and national programs with competitive events and 
+                        awards, and expand their knowledge of technology and its application in today’s world.<br><br>
+                         LITSU chapter activities are designed to provide an opportunity for growth and learning 
+                         in the classroom, laboratory, school, and/or community. Participation in LITSU programs and 
+                         activities is an integral part of Technology Education.
+                    </p>
+                    <div data-aos="fade-up" data-aos-duration="700" data-aos-delay="200">
+                        <a href="{% url 'membership_form' %}" class="btn btn-primary btn-hover-arrow hover-lift"><span>Join The Chapter</span></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 ms-auto position-relative">
+                    <div class="rellax position-absolute top-0 mt-n3 end-0 width-16x h-auto" data-rellax-speed="-1" data-rellax-percentage=".9">
+                        <img src="" data-inject-svg
+                        class=" fill-success w-100 h-auto" alt="">
+                    </div>
+                    <div class="position-relative ps-9 ps-lg-12 pb-9 pb-lg-12 pe-5 pt-5" data-aos="fade-right"
+                        data-aos-delay="200" data-aos-duration="700">
+                        <img src="{% static 'assets/img/w.webp' %}" alt=""
+                            class="img-fluid rounded-4 shadow-lg position-relative">
+                        <img src="{% static 'assets/img/e.webp' %}" alt=""
+                            class="img-fluid position-absolute shadow-lg rounded-4 bottom-0 start-0 w-lg-60 w-50">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="position-relative">
+        <div class="container py-9 py-lg-11">
+            <div class="row">
+                <div class="col-md-4 mb-7 mb-md-0">
+                    <div class="mb-2 position-relative display-5 fw-normal text-primary">
+                        <img src="{% static 'assets/img/icom/ice1.JPG' %}" alt="" class="img-fluid navbar-brand-sticky" style="height: 150px; width: 150px;">
+                    </div>
+                    <h6 class="fst-italic font-serif">OUR CREED</h6>
+                    <p class="mb-0">
+                        “We believe that Technology Education holds an important place in our life in the technical world. 
+                        We believe there is a need for the development of good attitudes concerning work, tools, materials, 
+                        experimentation and processes of industry.” “Guided by our teachers, artisans from industry, and our 
+                        own initiative, we will strive to do our best in making my school, community, and nation better places 
+                        in which to live.” “We will accept the responsibilities that are ours. We will accept the theories 
+                        that are supported by proper evidence. We will explore on our own for safer, more effective methods 
+                        of working and living.” “We will strive to develop a cooperative attitude and will exercise tact and 
+                        respect for other individuals.” “Through the work of our hands and mind, we will express our ideas 
+                        to the best of our ability.” “We will make it our goal to do better each day the task before us, and 
+                        to be steadfast in our belief in our God and our fellow Liberians.” 
+                        
+                    </p>
+                </div>
+
+                <div class="col-md-4 mb-5 mb-md-0">
+                    <div class="mb-2 position-relative display-5 fw-normal text-primary">
+                        <img src="{% static 'assets/img/icom/ice1.JPG' %}" alt="" class="img-fluid navbar-brand-sticky" style="height: 150px; width: 150px;">
+                    </div>
+                    <h6 class="fst-italic font-serif">OUR MISSION STATEMENT</h6>
+                    <p class="mb-0">
+                        <strong>LITSU’s mission</strong> 
+                        is to promote leadership development. 
+                        To improve the quality of technology and the prosperity for the young people of 
+                        Liberia through quality higher technology education that includes: teaching, research and community 
+                        service. To provide equal opportunity and encouragement for women involvement in technology and personal
+                        growth in a technological society. The LISU’s program of activities and support service for student 
+                        members help to carry out this mission. The LITSU’s mission is accomplished through local and 
+                        national chapters.
+                    </p>
+                </div>
+
+                <div class="col-md-4 mb-5 mb-md-0">
+                    <div class="mb-2 position-relative display-5 fw-normal text-primary">
+                        <img src="{% static 'assets/img/icom/firewall_icon.webp' %}" alt="" class="img-fluid navbar-brand-sticky" style="height: 150px; width: 150px;">
+                    </div>
+                    <h6 class="fst-italic font-serif">OUR VISION STATEMENT</h6>
+                    <ul>
+                        <li>
+                            Students will have contact with industrial and technological personnel, resources, and 
+                            developments to acquire technological understanding, consumer knowledge, and competencies 
+                            that lead to responsible citizenship.
+                        </li>
+                        <li>
+                            Students will engage in activities that allow them to be leaders and Students will plan, 
+                            organize, and carry out activities and projects that contribute to an improvement in or 
+                            service to the school and/or community.
+                        </li>
+                        <li>
+                            Students will use the free enterprise system to become aware of employment or self-employment 
+                            opportunities and requirements for their use when making career choices to determine their 
+                            educational programs.
+                        </li>
+                        <li>Students will be recognized for demonstrated understanding of technology, high standards of 
+                            quality, scholarship, and safety practices.
+                        </li>
+                    </ul>  
+                    
+                </div>
+
+                <div class="col-md-4 mb-5 mb-md-0">
+                    <div class="mb-2 position-relative display-5 fw-normal text-primary">
+                        <img src="{% static 'assets/img/icom/firewall_icon.webp' %}" alt="" class="img-fluid navbar-brand-sticky" style="height: 150px; width: 150px;">
+                    </div>
+                    <h6 class="fst-italic font-serif">OUR COLOR</h6>
+                    <p class="mb-0">
+                        Scarlet red represents the strength and determination of Technology Education students and teachers 
+                        to obtain their goals. White represents the high standards, moral values, and religious beliefs we hold.
+                         Royal blue represents the sincerity of Technology Education students and teachers in obtaining a
+                          greater knowledge of the technological world.
+                        
+                    </p>
+                </div>
+
+                <div class="col-md-4 mb-5 mb-md-0">
+                    <div class="mb-2 position-relative display-5 fw-normal text-primary">
+                        <img src="{% static 'assets/img/icom/ice1.JPG' %}" alt="" class="img-fluid navbar-brand-sticky" style="height: 150px; width: 150px;">
+                    </div>
+                    <h6 class="fst-italic font-serif">OUR MOTTO</h6>
+                    <p class="mb-0">
+                        “We Think of the future & hope for the progress through technology"
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    
+    <section class="position-relative">
+        <div class="container mt-0 py-9 py-lg-11">
+            <div class="row mb-7 mb-lg-9">
+                <div class="col-lg-10 col-xl-8 mx-auto text-center" data-aos="fade-up" data-aos-duration="700">
+                    <h2 class="display-5">Meet Our Advisory Board Members</h2>
+                    <p>They are on the front-line of technological transformation in Liberia.</p>
+                </div>
+            </div>
+    
+            <div class="row">
+                {% for i in advisory %}
+                <div class="col-lg-3 col-md-3 col-sm-4 col-6 mb-7 mt-auto text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="position-relative mb-4 overflow-hidden width-15x height-15x mx-auto rounded-circle">
+                        <img src="{{i.advisory.url}}" alt="" class="img-fluid">
+                    </div>
+                    <div>
+                        <h5 class="mb-1">{{i.advisory_name}}</h5>
+                        <p>{{i.occupation}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>    
+        </div>
+    </section>
+    
+{% endblock content %} 

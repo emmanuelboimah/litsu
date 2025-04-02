@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %} 
+    <title>{% block title %}News & Upadtes {% endblock %}</title>
+
+    <section class="bg-primary text-white">
+        <div class="container pt-10 pb-5 pb-lg-3">
+            <div class="row pt-lg-7">
+                <div class="col-xl-9">
+                    <h3 class="mb-0 display-9">News & Upadtes</h3>
+                    {% include 'includes/error.html' %}
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="position-relative">
+        <div class="container py-9 py-lg-11">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 mb-5 mb-md-0">
+                    <div class="pb-5">
+                        <h5 class="title mb-3">Newsletter</h5>
+                        <form method="post" action="{% url 'news' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <input type="email" name="email" class="mb-2 form-control" placeholder="Email Address" required="">
+                                <button type="submit" class="btn btn-primary btn-block btn-sm">
+                                    Subscribe
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <!--Recent Posts-->
+                    <div class="pb-5">
+                        <h5 class="title mb-3">Recent Posts</h5>
+                        {% for i in post %}
+                        <article class="d-flex mb-4 align-items-stretch">
+                            <div class="me-3">
+                                <a href="{% url 'news_detalte' i.id %}" class="d-block">
+                                    <img src="{{i.image.url}}" alt="Image"
+                                        class="width-7x h-auto rounded-3 hover-shadow-lg hover-lift">
+                                </a>
+                            </div>
+                            <div class="d-flex flex-column justify-content-between">
+                                <a href="{% url 'news_detalte' i.id %}">
+                                    <h6 class="mb-0 text-reset">
+                                        {{i.title}}
+                                    </h6>
+                                </a>
+                                <div class="d-flex pt-2 justify-content-between">
+                                    <small class="text-body-secondary">{{i.created_at}}</small>
+                                </div>
+                            </div>
+                        </article>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-lg-9">
+                    {% if user.user_type == '4' %}
+                    <div class="d-flex align-items-center mb-5">
+                        <a href="" class="mb-0 me-3 me-md-4 btn btn-primary">Add New Post</a>
+                        <div class="border-bottom flex-grow-1"></div>
+                    </div>
+                    {% else %}
+                    {% endif %}
+                    <div id="articles-container" class="pe-lg-3 pe-md-1">
+                        {% for i in blogs %}
+                        <article class="card align-items-stretch flex-md-row mb-2 mb-md-3 border-0 no-gutters"
+                            data-aos="fade-up">
+                            <div class="col-lg-3">
+                                <a href="{% url 'news_detalte' i.id %}"
+                                    class="d-block rounded-10 overflow-hidden hover-shadow-lg hover-lift">
+                                    <img src="{{i.image.url}}" alt="" class="img-fluid rounded-3">
+                                </a>
+                            </div>
+                            <div class="card-body d-flex flex-column col-auto p-md-0 ps-md-4">
+                                <div class="d-flex mb-0 justify-content-between">
+                                    <span class="d-inline-flex align-items-center small">
+                                     <i class="bi bi-calendar-check me-1"></i>
+                                        <span class="text-body-secondary">{{i.created_at}}</span>
+                                    </span>
+                                    <div class="small">{{i.category}}</div>
+                                </div>
+                                <h4>
+                                    <a href="{% url 'news_detalte' i.id %}" class="flex-grow-1 d-block">
+                                        {{i.title}}
+                                    </a>
+                                </h4>
+                                <p class="mb-4 flex-grow-1 d-none d-lg-block">
+                                    {{i.content|truncatewords:15}}
+                                </p>
+                                <div class="d-flex mb-0 small align-items-center">
+                                    <span class="text-body-secondary d-inline-block">By: <a href="#!">{{i.author}}</a></span>
+                                </div>
+                            </div>
+                            <!--/.card-body-->
+                            
+                        </article>
+                        {% endfor %}
+                    </div>
+
+                    <div class="row pt-5 justify-content-end">
+                        <div class="col-auto">
+                            <nav class="mb-0" aria-label="Page navigation example">
+                                <ul class="pagination mb-0" id="pagination-controls"></ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const articlesContainer = document.getElementById("articles-container");
+                        const paginationControls = document.getElementById("pagination-controls");
+                    
+                        const articles = Array.from(articlesContainer.children);
+                        const articlesPerPage = 3; // Number of articles per page
+                        let currentPage = 1;
+                    
+                        // Function to show only the articles for the current page
+                        function showPage(page) {
+                            const start = (page - 1) * articlesPerPage;
+                            const end = start + articlesPerPage;
+                    
+                            // Loop through articles and adjust visibility based on page
+                            articles.forEach((article, index) => {
+                                if (index >= start && index < end) {
+                                    article.style.display = ''; // Use an empty string to revert to the original display style
+                                } else {
+                                    article.style.display = 'none';
+                                }
+                            });
+                    
+                            // Update pagination controls
+                            updatePagination();
+                        }
+                    
+                        // Function to update pagination controls
+                        function updatePagination() {
+                            paginationControls.innerHTML = ''; // Clear pagination controls
+                    
+                            const totalPages = Math.ceil(articles.length / articlesPerPage);
+                    
+                            // Create Previous button
+                            const prevButton = document.createElement('li');
+                            prevButton.className = 'page-item' + (currentPage === 1 ? ' disabled' : '');
+                            prevButton.innerHTML = `<a class="page-link" href="#" aria-label="Previous">Previous</a>`;
+                            prevButton.onclick = (e) => {
+                                e.preventDefault();
+                                if (currentPage > 1) {
+                                    currentPage--;
+                                    showPage(currentPage);
+                                }
+                            };
+                            paginationControls.appendChild(prevButton);
+                    
+                            // Create page number buttons
+                            for (let i = 1; i <= totalPages; i++) {
+                                const pageButton = document.createElement('li');
+                                pageButton.className = 'page-item' + (i === currentPage ? ' active' : '');
+                                pageButton.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+                                pageButton.onclick = (e) => {
+                                    e.preventDefault();
+                                    currentPage = i;
+                                    showPage(currentPage);
+                                };
+                                paginationControls.appendChild(pageButton);
+                            }
+                    
+                            // Create Next button
+                            const nextButton = document.createElement('li');
+                            nextButton.className = 'page-item' + (currentPage === totalPages ? ' disabled' : '');
+                            nextButton.innerHTML = `<a class="page-link" href="#" aria-label="Next">Next</a>`;
+                            nextButton.onclick = (e) => {
+                                e.preventDefault();
+                                if (currentPage < totalPages) {
+                                    currentPage++;
+                                    showPage(currentPage);
+                                }
+                            };
+                            paginationControls.appendChild(nextButton);
+                        }
+                    
+                        // Show the first page initially
+                        showPage(currentPage);
+                    });
+                    
+                </script>
+
+            </div>
+            <!--/.blog-row-->
+        </div>
+    </section>
+    
+{% endblock content %} 

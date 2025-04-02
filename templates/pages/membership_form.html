@@ -1,0 +1,281 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %} 
+    <title>{% block title %}Membership Form{% endblock %}</title>
+
+    <section class="bg-primary text-white">
+        <div class="container pt-10 pb-5 pb-lg-3">
+            <div class="row pt-lg-7">
+                <div class="col-xl-9">
+                    <h3 class="mb-0 display-9">LITSU Membership Form</h3>
+                    {% include 'includes/error.html' %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="position-relative">
+        <div class="container py-9 py-lg-11">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 mb-5 mb-md-0">
+                    <div class="pb-5">
+                        <h5 class="title mb-3">Newsletter</h5>
+                        <form method="post" action="{% url 'news' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <input type="email" name="email" class="mb-2 form-control" placeholder="Email Address" required="">
+                                <button type="submit" class="btn btn-primary btn-block btn-sm">
+                                    Subscribe
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <!--Recent Posts-->
+                    <div class="pb-5">
+                        <h5 class="title mb-3">Recent Posts</h5>
+                        {% for i in post %}
+                        <article class="d-flex mb-4 align-items-stretch">
+                            <div class="me-3">
+                                <a href="{% url 'news_detalte' i.id %}" class="d-block">
+                                    <img src="{{i.image.url}}" alt="Image"
+                                        class="width-7x h-auto rounded-3 hover-shadow-lg hover-lift">
+                                </a>
+                            </div>
+                            <div class="d-flex flex-column justify-content-between">
+                                <a href="{% url 'news_detalte' i.id %}">
+                                    <h6 class="mb-0 text-reset">
+                                        {{i.title}}
+                                    </h6>
+                                </a>
+                                <div class="d-flex pt-2 justify-content-between">
+                                    <small class="text-body-secondary">{{i.created_at}}</small>
+                                </div>
+                            </div>
+                        </article>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-lg-9">
+                    <div id="articles-container" class="pe-lg-3 pe-md-1">
+                        <div class="d-flex align-items-center mb-4">
+                            <h6 class="mb-0 me-3 me-md-4">Presonal Information</h6>
+                            <div class="border-bottom flex-grow-1"></div>
+                        </div>
+                        <form class="row g-3">
+                            <div class="row">
+								<div class="col-md-4">
+									<div class="text-center">
+										<img alt="Charles Hall" src="{% static 'assets/img/addpic.png' %}" class="rounded-circle img-responsive mt-2" width="128" height="128" />
+										<div class="mt-2">
+											<label class="btn btn-primary">
+												<i class="fa fa-download"></i> Upload
+												<input type="file" accept=".png, .jpg, .jpeg" name="profile_pic"  style="display: none;" required>
+											</label>
+										</div>
+										<small>For best results, use an image at least 128px by 128px in .jpg format</small>
+									</div>
+								</div>
+							</div>
+                            
+                            <div class="col-md-4">
+                                <label class="form-label">First Name</label>
+                                <input type="text" name="last_name" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label  class="form-label">Last Name</label>
+                                <input type="text" name="last_name" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">Gender </label>
+                                <select name="gander" class="form-select" required>
+                                    <option value="">Select Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label  class="form-label">Phone Number</label>
+                                <input type="number" name="phone_number" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label  class="form-label">Email Number</label>
+                                <input type="email" name="email" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label  class="form-label">Home Address</label>
+                                <input type="text" name="home_address" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label  class="form-label">Birth Date</label>
+                                <input type="date" name="birth_day" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label  class="form-label">Nationality</label>
+                                <input type="text" name="nationality" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">County Of Residence</label>
+                                <select name="county_of_origin" class="form-select" required>
+                                    <option value="">Select County of Residence</option>
+                                    <option>Bomi</option>
+                                    <option>Bong</option>
+                                    <option>Gbarpolu</option>
+                                    <option>Grand Bassa</option>
+                                    <option>Grand Cape Mount</option>
+                                    <option>Grand Gedeh</option>
+                                    <option>Grand Kru</option>
+                                    <option>Lofa</option>
+                                    <option>Margibi</option>
+                                    <option>Maryland</option>
+                                    <option>Montserrado</option>
+                                    <option>Nimba</option>
+                                    <option>Rivercess</option>
+                                    <option>River Gee</option>
+                                    <option>Sinoe</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label  class="form-label">Occupation</label>
+                                <input type="text" name="occupation" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label  class="form-label">Extra Skill(s)</label>
+                                <input type="text" name="extra_skill" class="form-control" required>
+                            </div>
+                            
+                            <div class="col-md-3">
+                                <label  class="form-label">Class/Level of Education</label>
+                                <input type="text" name="level_of_education" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="form-label">Chapter Name</label>
+                                <select name="chapter_name" class="form-select" required>
+                                    <option value="">Select</option>
+                                    <option></option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">Who do you live with </label>
+                                <select name="liveing_with" class="form-select" required>
+                                    <option value="">Select</option>
+                                    <option>Parent</option>
+                                    <option>Guardian</option>
+                                    <option>Self</option>
+                                </select>
+                            </div>
+                                                        
+                            <div class="col-md-4">
+                                <label class="form-label">Working Or Not</label>
+                                <select name="working_or_not" class="form-select">
+                                    <option value="">Select</option>
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </div>
+                           
+                            <div class="col-md-4">
+                                <label  class="form-label">If yes, Place of work</label>
+                                <input type="text" name="if_yes_place_of_work" class="form-control">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label  class="form-label">Where did you hear about us?</label>
+                                <select name="hear_about_us" class="form-select" required>
+                                    <option value="">Select</option>
+                                    <option>A Friend or Colleague</option>
+                                    <option>Google</option>
+                                    <option>Blog Post</option>
+                                    <option>News Artcle</option>
+                                    <option>Facebook</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label  class="form-label">Why you want to be LITSU member?</label>
+                                <input type="text" name="why_be_member" class="form-control" required>
+                            </div>
+
+                            <div class="d-flex align-items-center mb-1">
+                                <h6 class="mt-5 mb-0 me-3 me-md-1">Emergency Contact</h6>
+                                <div class="mt-5 border-bottom flex-grow-1"></div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label  class="form-label">First Name</label>
+                                <input type="text" name="emergency_first_name" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label  class="form-label">Last Name</label>
+                                <input type="text" name="emergency_last_name" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label  class="form-label">Email</label>
+                                <input type="email" name="emergency_email" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label  class="form-label">Address</label>
+                                <input type="text" name="emergency_address" class="form-control" required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label  class="form-label">Relationship</label>
+                                <input type="text" name="emergency_relationship" class="form-control" required>
+                            </div>
+
+                            <div class="d-flex align-items-center mb-1">
+                                <h6 class="mt-5 mb-0 me-3 me-md-1">Membership Rules</h6>
+                                <div class="mt-5 border-bottom flex-grow-1"></div>
+                            </div>
+                            <p>
+                                1. Membership is available to anyone who reading I C T in any university, collage in Liberia.<br>
+                                2. You promise NOT to use to conduct any fraudulent or business activity or have more than one Member Account at any time. <br>
+                                <div class="mt-0"><a href="">Privacy Policy</a><div>         
+                            </p>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input name="accepted_membership_rules" class="form-check-input" type="checkbox" id="gridCheck" required>
+                                    <label class="form-check-label" for="gridCheck">
+                                        I have read, understood, and accepted the rules for membership.
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input name="accepted_privacy_policy" class="form-check-input" type="checkbox" id="gridCheck" required>
+                                    <label class="form-check-label" for="gridCheck">
+                                        I have read, understood, and accepted the PRIVACY POLICY for membership.
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <input type="submit" class="btn btn-primary" name="submit" value="Submit Application" />
+                            </div>
+
+                            
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <!--/.blog-row-->
+        </div>
+    </section>
+    
+{% endblock content %} 

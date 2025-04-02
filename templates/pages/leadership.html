@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %} 
+    <title>{% block title %}Leadership's{% endblock %}</title>
+
+    <section class="bg-primary text-white">
+        <div class="container pt-10 pb-5 pb-lg-3">
+            <div class="row pt-lg-7">
+                <div class="col-xl-9">
+                    <h3 class="mb-0 display-9">Leadership</h3>
+                    {% include 'includes/error.html' %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="position-relative">
+        <div class="container mt-0 py-9 py-lg-11">
+            <div class="row mb-7 mb-lg-9">
+                <div class="col-lg-10 col-xl-8 mx-auto text-center" data-aos="fade-up" data-aos-duration="700">
+                    <h2 class="display-5">Our team {{leadership.year}}</h2>
+                    <p>Meet The Leadership Of Liberia Information Students Union {{leadership.year}}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                
+                <div class="col-lg-3 mb-7 mt-auto text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="position-relative mb-4 overflow-hidden width-18x height-18x mx-auto rounded-circle">
+                        <img src="{{leadership.president_cover.url}}" alt="" class="img-fluid">
+                    </div>
+                    <div>
+                        <h5 class="mb-1">{{leadership.president}}</h5>
+                        <p class="d-block text-body-secondary small mb-3">President</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mb-7 mt-auto text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="position-relative mb-4 overflow-hidden width-18x height-18x mx-auto rounded-circle">
+                        <img src="{{leadership.vic_president_cover.url}}" alt="" class="img-fluid">
+                    </div>
+
+                    <div>
+                        <h5 class="mb-1">{{leadership.vic_president}}</h5>
+                        <p class="d-block text-body-secondary small mb-3">Vic President</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mb-7 mt-auto text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="position-relative mb-4 overflow-hidden width-18x height-18x mx-auto rounded-circle">
+                        <img src="{{leadership.secretary_general_cover.url}}" alt="" class="img-fluid">
+                    </div>
+
+                    <div>
+                        <h5 class="mb-1">{{leadership.secretary_general}}</h5>
+                        <p class="d-block text-body-secondary small mb-3">Secretary General</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mb-7 mt-auto text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="position-relative mb-4 overflow-hidden width-18x height-18x mx-auto rounded-circle">
+                        <img src="{{leadership.financial_secretary_cover.url}}" alt="" class="img-fluid">
+                    </div>
+
+                    <div>
+                        <h5 class="mb-1">{{leadership.financial_secretary}}</h5>
+                        <p class="d-block text-body-secondary small mb-3">Financial Secretary</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mb-7 mt-auto text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="position-relative mb-4 overflow-hidden width-18x height-18x mx-auto rounded-circle">
+                        <img src="{{leadership.aLL_chapters_chairma_cover.url}}" alt="" class="img-fluid">
+                    </div>
+
+                    <div>
+                        <h5 class="mb-1">{{leadership.aLL_chapters_chairman}}</h5>
+                        <p class="d-block text-body-secondary small mb-3">ALL Chapters Chairman</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mb-7 mt-auto text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="position-relative mb-4 overflow-hidden width-18x height-18x mx-auto rounded-circle">
+                        <img src="{{leadership.program_director_cover.url}}" alt="" class="img-fluid">
+                    </div>
+
+                    <div>
+                        <h5 class="mb-1">{{leadership.program_director}}</h5>
+                        <p class="d-block text-body-secondary small mb-3">Program Pirector</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mb-7 mt-auto text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="position-relative mb-4 overflow-hidden width-18x height-18x mx-auto rounded-circle">
+                        <img src="{{leadership.sa_cover.url}}" alt="" class="img-fluid">
+                    </div>
+
+                    <div>
+                        <h5 class="mb-1">{{leadership.sa}}</h5>
+                        <p class="d-block text-body-secondary small mb-3">Presidential Press Secretary</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mb-7 mt-auto text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="position-relative mb-4 overflow-hidden width-18x height-18x mx-auto rounded-circle">
+                        <img src="{{leadership.training_director_cover.url}}" alt="" class="img-fluid">
+                    </div>
+
+                    <div>
+                        <h5 class="mb-1">{{leadership.training_director}}</h5>
+                        <p class="d-block text-body-secondary small mb-3">Training Director</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mb-7 mt-auto text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="position-relative mb-4 overflow-hidden width-18x height-18x mx-auto rounded-circle">
+                        <img src="{{leadership.girls_in_ICTs_chairlady_cover.url}}" alt="" class="img-fluid">
+                    </div>
+
+                    <div>
+                        <h5 class="mb-1">{{leadership.girls_in_ICTs_chairlady}}</h5>
+                        <p class="d-block text-body-secondary small mb-3">Girls in ICTs Chairlady</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mb-7 mt-auto text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="position-relative mb-4 overflow-hidden width-18x height-18x mx-auto rounded-circle">
+                        <img src="{{leadership.national_reporter_cover.url}}" alt="" class="img-fluid">
+                    </div>
+
+                    <div>
+                        <h5 class="mb-1">{{leadership.national_reporter}}</h5>
+                        <p class="d-block text-body-secondary small mb-3">National Reporter</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mb-7 mt-auto text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="position-relative mb-4 overflow-hidden width-18x height-18x mx-auto rounded-circle">
+                        <img src="{{leadership.systems_administrator_cover.url}}" alt="" class="img-fluid">
+                    </div>
+
+                    <div>
+                        <h5 class="mb-1">{{leadership.systems_administrator}}</h5>
+                        <p class="d-block text-body-secondary small mb-3">Systems Ddministrator</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 mb-7 mt-auto text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                    <div class="position-relative mb-4 overflow-hidden width-18x height-18x mx-auto rounded-circle">
+                        <img src="{{leadership.p_r_o_cover.url}}" alt="" class="img-fluid">
+                    </div>
+
+                    <div>
+                        <h5 class="mb-1">{{leadership.p_r_o}}</h5>
+                        <p class="d-block text-body-secondary small mb-3">P.R.O</p>
+                    </div>
+                </div>
+
+                <div class="row mb-7 mb-lg-9">
+                    <div class="col-lg-10 col-xl-8 mx-auto text-center" data-aos="fade-up" data-aos-duration="700">
+                        <h2 class="display-7">Our Chapters Leadership {{leadership.year}}</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    {% for chairman in chapter_chairmen %}
+                        <div class="col-lg-3 mb-7 mt-auto text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="700">
+                            <div class="position-relative mb-4 overflow-hidden width-18x height-18x mx-auto rounded-circle">
+                                <img src="{{ chairman.chapter_chairman_cover.url }}" alt="" class="img-fluid">
+                            </div>
+                
+                            <div>
+                                <h6 class="mb-1">{{ chairman.chapter_chairman_name }}</h6>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                        
+            </div>    
+        </div>
+    </section>
+{% endblock content %} 

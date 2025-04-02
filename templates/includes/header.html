@@ -1,0 +1,334 @@
+{% load static %}
+    <header class="header-transparent sticky-fixed">
+        {% if user.user_type == '1' %}
+        <nav class="navbar navbar-expand-lg fixed-top navbar-light navbar-link-white">
+            <!--Navbar-fixed-background-->
+            <div class="navbar-fixed-bg position-absolute"></div>
+            <div class="container position-relative z-1">
+                <!--begin:logo-->
+                <a class="navbar-brand" href="{% url 'admin_home1_page' %}">
+                    <img src="{% static 'assets/img/loge/login.png' %}" alt="" class="img-fluid navbar-brand-sticky" style="height: 70px; width: 70px;">
+                    <img src="{% static 'assets/img/loge/login2.JPG' %}" alt="" class="img-fluid navbar-brand-transparent" style="height: 70px; width: 70px;">
+                </a>
+                <!--end:logo-->
+                <!--begin:navbar-no-collapse-items-->
+                <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+                <!--Navbar toggler button-->
+                <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"> <i></i> </span>
+                </button>
+                <!--Button-->
+                <div class="nav-item me-3 ms-lg-3 ms-xl-5 me-lg-0">
+                    <a href="{% url 'dologout' %}" class="btn btn-success btn-sm">Logout</a>
+                </div>
+            </div>
+            <!--end:navbar-no-collapse-items-->
+
+            <!--begin:navbar-collapse-->
+            <div class="collapse navbar-collapse" id="mainNavbarTheme">
+                
+                <!--begin:Navbar items-->
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
+                            Chapters
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'admin_add_chapters' %}">Add Chapters</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
+                            Leaderships
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'admin_add_leadership' %}">Add Leaderships</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
+                            Forms
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'admin_view_contact' %}">View Contact Form</a></li>
+                            <li><a class="dropdown-item" href="{% url 'admin_view_Subscribe' %}">View Subscribe Email</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
+                            Membership Form
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'admin_view_membership' %}">View Membership Form</a></li>
+                        </ul>
+                    </li>
+                   
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
+                            User Form
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'admin_view_style_user' %}">Style User</a></li>
+                            <hr class="mt-0 mb-0">
+                            <li><a class="dropdown-item" href="{% url 'admin_view_chife_editor' %}">Chife Editor</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <!--end:Navbar items-->
+
+                </div>
+                <!--end:navbar-collapse-->
+            </div>
+        </nav>
+        {% elif user.user_type == '2' %}
+        <nav class="navbar navbar-expand-lg fixed-top navbar-light navbar-link-white">
+            <!--Navbar-fixed-background-->
+            <div class="navbar-fixed-bg position-absolute"></div>
+            <div class="container position-relative z-1">
+                <!--begin:logo-->
+                <a class="navbar-brand" href="{% url 'admin_home2_page' %}">
+                    <img src="{% static 'assets/img/loge/login.png' %}" alt="" class="img-fluid navbar-brand-sticky" style="height: 70px; width: 70px;">
+                    <img src="{% static 'assets/img/loge/login2.JPG' %}" alt="" class="img-fluid navbar-brand-transparent" style="height: 70px; width: 70px;">
+                </a>
+                <!--end:logo-->
+                <!--begin:navbar-no-collapse-items-->
+                <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+                <!--Navbar toggler button-->
+                <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"> <i></i> </span>
+                </button>
+                <!--Button-->
+                <div class="nav-item me-3 ms-lg-3 ms-xl-5 me-lg-0">
+                    <a href="{% url 'dologout' %}" class="btn btn-success btn-sm">Logout</a>
+                </div>
+            </div>
+            <!--end:navbar-no-collapse-items-->
+
+            <!--begin:navbar-collapse-->
+            <div class="collapse navbar-collapse" id="mainNavbarTheme">
+                
+                <!--begin:Navbar items-->
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="{% url 'news' %}" role="button">News & Upadtes</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="{% url 'view_editor' %}" role="button">Editor</a>
+                    </li>
+                    
+                </ul>
+                <!--end:Navbar items-->
+
+                </div>
+                <!--end:navbar-collapse-->
+            </div>
+        </nav>
+        {% elif user.user_type == '3' %}
+        <nav class="navbar navbar-expand-lg fixed-top navbar-light navbar-link-white">
+            <!--Navbar-fixed-background-->
+            <div class="navbar-fixed-bg position-absolute"></div>
+            <div class="container position-relative z-1">
+                <!--begin:logo-->
+                <a class="navbar-brand" href="{% url 'style_user' %}">
+                    <img src="{% static 'assets/img/loge/login.png' %}" alt="" class="img-fluid navbar-brand-sticky" style="height: 70px; width: 70px;">
+                    <img src="{% static 'assets/img/loge/login2.JPG' %}" alt="" class="img-fluid navbar-brand-transparent" style="height: 70px; width: 70px;">
+                </a>
+                <!--end:logo-->
+                <!--begin:navbar-no-collapse-items-->
+                <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+                <!--Navbar toggler button-->
+                <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"> <i></i> </span>
+                </button>
+                <!--Button-->
+                <div class="nav-item me-3 ms-lg-3 ms-xl-5 me-lg-0">
+                    <a href="{% url 'dologout' %}" class="btn btn-success btn-sm">Logout</a>
+                </div>
+            </div>
+            <!--end:navbar-no-collapse-items-->
+
+            <!--begin:navbar-collapse-->
+            <div class="collapse navbar-collapse" id="mainNavbarTheme">
+                
+                <!--begin:Navbar items-->
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
+                            President
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'presidential' %}">Presidential Info</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
+                            slider
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'slider_image' %}">Slider Images</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+                <!--end:Navbar items-->
+
+                </div>
+                <!--end:navbar-collapse-->
+            </div>
+        </nav>
+        {% elif user.user_type == '4' %}
+        <nav class="navbar navbar-expand-lg fixed-top navbar-light navbar-link-white">
+            <!--Navbar-fixed-background-->
+            <div class="navbar-fixed-bg position-absolute"></div>
+            <div class="container position-relative z-1">
+                <!--begin:logo-->
+                <a class="navbar-brand" href="{% url 'editor_home' %}">
+                    <img src="{% static 'assets/img/loge/login.png' %}" alt="" class="img-fluid navbar-brand-sticky" style="height: 70px; width: 70px;">
+                    <img src="{% static 'assets/img/loge/login2.JPG' %}" alt="" class="img-fluid navbar-brand-transparent" style="height: 70px; width: 70px;">
+                </a>
+                <!--end:logo-->
+                <!--begin:navbar-no-collapse-items-->
+                <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+                <!--Navbar toggler button-->
+                <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"> <i></i> </span>
+                </button>
+                <!--Button-->
+                <div class="nav-item me-3 ms-lg-3 ms-xl-5 me-lg-0">
+                    <a href="{% url 'dologout' %}" class="btn btn-success btn-sm">Logout</a>
+                </div>
+            </div>
+            <!--end:navbar-no-collapse-items-->
+
+            <!--begin:navbar-collapse-->
+            <div class="collapse navbar-collapse" id="mainNavbarTheme">
+                
+                <!--begin:Navbar items-->
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="{% url 'news' %}" role="button">Add News & Upadtes</a>
+                    </li>
+                    
+                </ul>
+                <!--end:Navbar items-->
+
+                </div>
+                <!--end:navbar-collapse-->
+            </div>
+        </nav>
+        {% else %}
+        <nav class="navbar navbar-expand-lg fixed-top navbar-light navbar-link-white">
+            <!--Navbar-fixed-background-->
+            <div class="navbar-fixed-bg position-absolute"></div>
+            <div class="container position-relative z-1">
+                <!--begin:logo-->
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="{% static 'assets/img/loge/login.png' %}" alt="" class="img-fluid navbar-brand-sticky" style="height: 70px; width: 70px;">
+                    <img src="{% static 'assets/img/loge/login2.JPG' %}" alt="" class="img-fluid navbar-brand-transparent" style="height: 70px; width: 70px;">
+                </a>
+                <!--end:logo-->
+                <!--begin:navbar-no-collapse-items-->
+                <div class="d-flex align-items-center navbar-no-collapse-items order-lg-last">
+                <!--Navbar toggler button-->
+                <button class="navbar-toggler order-last" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarTheme" aria-controls="mainNavbarTheme" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"> <i></i> </span>
+                </button>
+                <!--Button-->
+                <div class="nav-item me-3 ms-lg-3 ms-xl-5 me-lg-0">
+                    <a href="#" class="btn btn-success btn-sm">eBooks</a>
+                </div>
+            </div>
+            <!--end:navbar-no-collapse-items-->
+
+            <!--begin:navbar-collapse-->
+            <div class="collapse navbar-collapse" id="mainNavbarTheme">
+                
+                <!--begin:Navbar items-->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="{% url 'home' %}" role="button">Home</a>
+                    </li>
+
+                    <!--begin:landings-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active" href="index.html" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Meet The Chapters
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-md dropdown-menu-start py-0 pe-lg-0">
+                            <div class="overflow-hidden rounded-end">
+                                <div class="row mx-0">
+                                    <div class="col-lg-5 position-relative">
+                                        <div class="py-1 py-lg-3 d-lg-flex flex-column">
+                                            {% for chapter in chapters %}
+                                                <a href="{% url 'chapters' chapter.id %}" class="dropdown-item">{{ chapter.chapters_name }}</a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <!--/.col-->
+                                    <div class="col-lg-7 d-none rounded-end overflow-hidden px-0 d-lg-block position-relative bg-no-repeat bg-cover bg-center" style="background-image: url('{% static 'assets/img/icom/abous1.jpg' %}')">
+                                        <div class="position-absolute rounded-end w-100 h-100 top-0 start-0 bg-gradient-primary opacity-75"> </div>
+                                        <div class="p-4 d-flex flex-column align-items-center text-center justify-content-center h-100 py-5 position-relative text-white">
+                                            <h6 class="fs-1 mb-4">Giving you IT peace of mind.</h6>
+                                            <p class="mb-5 small">We think of the future and hope for the progress</p>
+                                            <a href="{% url 'membership_form' %}" class="btn btn-white btn-lg">LITSU Membership Form</a>
+                                        </div>
+                                    </div>
+                                    <!--/.col-->
+                                </div>
+                                <!--/.row-->
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="{% url 'news' %}" role="button">News & Upadtes</a>
+                    </li>
+
+                    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Know's Us
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="{% url 'about_us' %}">About Us</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'contact_us' %}">Contact Us</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Leadership
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                    {% for i in leaderships %}
+                                    <li><a class="dropdown-item" href="{% url 'leadership' i.id %}">{{i.year}}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </ul>
+                <!--end:Navbar items-->
+
+                </div>
+                <!--end:navbar-collapse-->
+            </div>
+        </nav>
+        {% endif %}
+    </header>

@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %} 
+    <title>{% block title %}News detail{% endblock %}</title>
+
+    <section class="bg-primary text-white">
+        <div class="container pt-10 pb-5 pb-lg-3">
+            <div class="row pt-lg-7">
+                <div class="col-xl-9">
+                    <h3 class="mb-0 display-9">News & Upadtes Details</h3>
+                    {% include 'includes/error.html' %}
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="position-relative">
+        <div class="container py-9 py-lg-11">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 mb-5 mb-md-0">
+                    <div class="pb-5">
+                        <h5 class="title mb-3">Newsletter</h5>
+                        <form method="post" action="{% url 'news' %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <input type="email" name="email" class="mb-2 form-control" placeholder="Email Address" required="">
+                                <button type="submit" class="btn btn-primary btn-block btn-sm">
+                                    Subscribe
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <!--Recent Posts-->
+                    <div class="pb-5">
+                        <h5 class="title mb-3">Recent Posts</h5>
+                        {% for i in post %}
+                        <article class="d-flex mb-4 align-items-stretch">
+                            <div class="me-3">
+                                <a href="{% url 'news_detalte' i.id %}" class="d-block">
+                                    <img src="{{i.image.url}}" alt="Image"
+                                        class="width-7x h-auto rounded-3 hover-shadow-lg hover-lift">
+                                </a>
+                            </div>
+                            <div class="d-flex flex-column justify-content-between">
+                                <a href="{% url 'news_detalte' i.id %}">
+                                    <h6 class="mb-0 text-reset">
+                                        {{i.title}}
+                                    </h6>
+                                </a>
+                                <div class="d-flex pt-2 justify-content-between">
+                                    <small class="text-body-secondary">{{i.created_at}}</small>
+                                </div>
+                            </div>
+                        </article>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="col-md-3 mt-0 col-lg-9">
+                    <div class="pe-lg-3 pe-md-1">
+                        <article class="row pt-lg-7 pb-3">
+                            <div class="col-lg-12 col-xl-12">
+                                <div class="position-relative pb-3 pb-lg-0">
+                                    <div class="d-flex align-items-center w-100">
+                                        <div class="badge bg-primary rounded-pill me-3">{{blogs_detalte.category}}</div>
+                                        <small class="text-body-secondary">{{blogs_detalte.created_at}}</small>
+                                    </div>
+                                    <div>
+                                        <h2 class="my-4 display-10">
+                                            {{blogs_detalte.title}}
+                                        </h2>
+                                        <div class="d-flex pt-0 mb-0 small align-items-center">
+                                            <img src="{{blogs_detalte.image.url}}" alt="" class="width-3x height-3x rounded-circle me-2">
+                                            <span class="text-body-secondary d-inline-block">By <a href="#!" class="text-dark">Andrew</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <article class="article">
+                            <img src="{{blogs_detalte.image.url}}" alt="" class="img-fluid shadow-lg rounded-5 mb-7 mb-lg-4 position-relative" style="width: 100%; height: 500px;">
+                            {% for page in pages %}
+                                <p class="mb-2">{{ page }}</p>
+                                {% if not forloop.last %}
+                                {% endif %}
+                            {% endfor %}
+                        </article>
+                    </div>
+                    <!--/.Pagination-row-->
+                    {% if user.user_type == '2' %}
+                    <div class="col-12 mt-4">
+                        <a href="{% url 'edit_post' blogs_detalte.id %}" class="btn btn-primary">Edit</a>
+                        <a href="" class="btn btn-primary">Detele</a>
+                    </div>
+                    {% else %}
+                    {% endif %}
+                </div>
+                <!--/.col-->
+
+            </div>
+            <!--/.blog-row-->
+            
+        </div>
+    </section>
+    
+{% endblock content %} 
