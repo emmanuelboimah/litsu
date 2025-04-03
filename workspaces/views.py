@@ -186,3 +186,15 @@ def Contact_Us(request):
         
     }
     return render(request, 'pages/contact_us.html', context)
+
+def Chapters(request, id):
+    chapter = Chapter.objects.get(id=id) 
+    chapters = Chapter.objects.all()
+    leaderships = Leaderships.objects.all().order_by('-id')
+    
+    context = { 
+        'leaderships': leaderships,
+        'chapter': chapter,
+        'chapters': chapters
+    }
+    return render(request, 'pages/chapters.html', context)

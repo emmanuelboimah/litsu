@@ -43,9 +43,9 @@
                                 <div class="row mx-0">
                                     <div class="col-lg-5 position-relative">
                                         <div class="py-1 py-lg-3 d-lg-flex flex-column">
-                                           
-                                                <a href="" class="dropdown-item"></a>
-                                           
+                                            {% for chapter in chapters %}
+                                            <a href="{% url 'chapters' chapter.id %}" class="dropdown-item">{{ chapter.chapters_name }}</a>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                     <!--/.col-->
@@ -104,5 +104,5 @@
                 <!--end:navbar-collapse-->
             </div>
         </nav>
-        
+
     </header>
